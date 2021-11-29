@@ -8,11 +8,13 @@ import Rent from './Rent';
 import AdminPage from './AdminPage';
 import RentaCar from './Rentacar';
 import ConfirmPage from './ConfirmPage';
+import Login from './Login';
 
 function App() {
 
+
   return (
-    <Router>
+     <Router>
       <div className="App">
         <Navbar/>
         <div className="content">
@@ -31,6 +33,9 @@ function App() {
             </Route>
             <Route path="/adminpage">
               <AdminPage/>
+            </Route>
+            <Route path="/login">
+              <Login/>
             </Route>
             <Route path="/rent">
               <Rent/>

@@ -3,8 +3,20 @@ import AdminCarList from './AdminCarList';
 import Create from './Create';
 import RentList from './RentList';
 import useFetch from './useFetch';
+import { Link, useHistory } from 'react-router-dom';
+import Login from './Login';
+import { auth, db, logout } from "./firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { signOut } from '@firebase/auth';
 
 const AdminPage = () => {
+
+    const [user] = useAuthState(auth);
+    const logout = async () => {
+        await signOut(auth);
+    };
+
+    const history = useHistory();
 
     const[state, setState] = useState('carsTab');
     const[isCarsChosen, setIsCarsChosen] = useState(false);
@@ -23,7 +35,8 @@ const AdminPage = () => {
 
     const{data: cars} = useFetch('http://localhost:8080/cars');
     const{data: rents} = useFetch('http://localhost:8080/rents');
-    const{data: customers} = useFetch('http://localhost:8080/customers');
+    
+    if(user){
     return ( 
         <div className="adminpage">
             <div className="tabs">
@@ -31,6 +44,7 @@ const AdminPage = () => {
                 {isCarsChosen && <button onClick={handleCarsClick} className="tab-button-selected">Cars</button>}
                 {!isRentsChosen && <button onClick={handleRentsClick} className="tab-button">Rents</button>}
                 {isRentsChosen && <button onClick={handleRentsClick} className="tab-button-selected">Rents</button>}
+                <button onClick={logout} className="general-button-small right-float padding-right">Logout</button>
             </div>
             {state === 'carsTab' && (
                 cars && (
@@ -46,12 +60,18 @@ const AdminPage = () => {
                     <RentList rents={rents}/>
                 )
             )}
-            {/* {rents && <RentList rents={rents} cars={cars} customers={customers}/>}
-            <Create/>
-            <h1 className="centered">Car list</h1>
-            {cars && <AdminCarList cars={cars} title=""/>} */}
         </div>
      );
+    } else {
+        return(
+            <div className="centered">
+                <h1>Authorized access only</h1>
+                <h2>If you are admin - login</h2>
+                <br />
+                <Login/>
+            </div>
+        );
+    }
 }
  
 export default AdminPage;

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import useFetch from "./useFetch";
 
 const CreateCustomer = ({end_time, start_time}) => {
 
