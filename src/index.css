@@ -36,6 +36,27 @@
 
 /* blog previews / list */
 
+.rent-card {
+    display: inline-block;
+    width: 600px;
+    height: 200px;
+    padding: 10px 16px;
+    margin: 20px 0;
+    border-bottom: 1px solid #f1356d;
+}
+
+.color-text {
+    color: #f1356d;
+}
+
+.left-float {
+    float: left;
+}
+
+.right-float {
+    float: right;
+}
+
 .car-card {
     display: flex;
     width: 500px;
@@ -104,6 +125,41 @@
     cursor: pointer;
 }
 
+.tabs {
+    padding-left: 120px;
+    margin-bottom: 30px;
+}
+
+.tab-button-selected {
+    background: #f1356d;
+    color: #fff;
+    font-size: 30px;
+    height: 60px;
+    border: 0;
+    margin: 5px;
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.tab-button {
+    background: #afafaf;
+    color: #333;
+    font-size: 30px;
+    height: 60px;
+    border: 0;
+    margin: 5px;
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.tab-button:hover {
+    background: #f0a3ba;
+}
+
 /* blog details page */
 .blog-details h2 {
     font-size: 20px;
@@ -162,8 +218,17 @@
 
 .centered {
     margin: 0 auto;
-    max-width: 400px;
+    max-width: 600px;
     text-align: center;
+}
+
+.centered-2 {
+    margin: 0 auto;
+    max-width: 550px;
+}
+
+.left-text {
+    text-align: left;
 }
 
 /*Car rental page*/

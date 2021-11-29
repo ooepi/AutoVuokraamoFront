@@ -7,6 +7,7 @@ import NotFound from './NotFound';
 import Rent from './Rent';
 import AdminPage from './AdminPage';
 import RentaCar from './Rentacar';
+import ConfirmPage from './ConfirmPage';
 
 function App() {
 
@@ -24,6 +25,9 @@ function App() {
             </Route>
             <Route path="/rentacar/:car_id">
               <RentaCar/>
+            </Route>
+            <Route path="/confirmpage/:rent_id">
+              <ConfirmPage/>
             </Route>
             <Route path="/adminpage">
               <AdminPage/>

@@ -9,6 +9,7 @@ const CreateCustomer = ({end_time, start_time}) => {
     const[number, setNumber] = useState('');
     const[address, setAddress] = useState('');
 
+    let rent_id = null;
     const { car_id } = useParams();
     let customer_id = null;
 
@@ -31,19 +32,19 @@ const CreateCustomer = ({end_time, start_time}) => {
         .then(() => {
             console.log('new customer added' + JSON.stringify(customer))
             setIspending(false);
-            //history.push('/confirmpage');
         }).then(() => {
             fetch('http://localhost:8080/rents/', {
                 method: 'POST',
                 headers: {"Content-Type" : "application/json"},
                 body: JSON.stringify(rent)
-            }).then(() => {
-                rent.start_time = start_time;
-                rent.end_time = end_time;
+            }).then(res => res.json())
+            .then(data => rent_id = data.rent_id)
+            .then(() => {
+                console.log("rentid: " + rent_id)
                 console.log('new rental created' + JSON.stringify(rent))
+                history.push(`/confirmpage/${rent_id}`);
             })
         })
-        
     }
 
     return ( 
