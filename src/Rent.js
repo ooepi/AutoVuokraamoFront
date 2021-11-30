@@ -52,9 +52,11 @@ const Rent = () => {
             </div>
             {error && <div>{error}</div>}
             {isPending && <div>Loading...</div>}
+            {/*eslint-disable-next-line*/}
             {type == 'All' && cars && <CarList cars={cars} title="All cars"/>}
             {cars && <CarList cars={
                 cars.filter((car) => car.type === type)
+                /*eslint-disable-next-line*/
                 .filter((car) => car.seats == seats)
                 .filter((car) => (car.price >= lowPrice) && (car.price <= highPrice))
             } title="Filtered"/>}
