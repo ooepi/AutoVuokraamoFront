@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 const CarList = ({cars, title}) => {
 
     return ( 
-        <div className="blog-list">
+        <div className="centered left-text">
             <h2>{title}</h2>
             {cars.map((car) => (
                 <div className="car-card" key={car.car_id}>

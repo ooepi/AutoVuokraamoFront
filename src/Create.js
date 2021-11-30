@@ -24,7 +24,7 @@ const Create = () => {
         }).then(() => {
             console.log('new car added' + JSON.stringify(car))
             setIspending(false);
-            //history.push('/');
+            history.push('/adminpage');
         })
     }
 

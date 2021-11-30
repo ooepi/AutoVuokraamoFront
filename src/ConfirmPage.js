@@ -1,4 +1,4 @@
-import { useHistory, useParams } from "react-router";
+import { useParams } from "react-router";
 import useFetch from "./useFetch";
 import {format} from "date-fns";
 

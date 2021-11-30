@@ -3,9 +3,8 @@ import AdminCarList from './AdminCarList';
 import Create from './Create';
 import RentList from './RentList';
 import useFetch from './useFetch';
-import { Link, useHistory } from 'react-router-dom';
 import Login from './Login';
-import { auth, db, logout } from "./firebase";
+import { auth} from "./firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from '@firebase/auth';
 
@@ -15,8 +14,6 @@ const AdminPage = () => {
     const logout = async () => {
         await signOut(auth);
     };
-
-    const history = useHistory();
 
     const[state, setState] = useState('carsTab');
     const[isCarsChosen, setIsCarsChosen] = useState(false);

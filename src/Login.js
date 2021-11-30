@@ -23,11 +23,11 @@ const Login = () => {
           loginEmail,
           loginPassword
         );
+        console.log(user?.email)
       } catch (error) {
         setError(error.message);
       }
           console.log("logged in");
-          console.log(user)
           history.push('/adminpage');
     };
   
@@ -51,7 +51,6 @@ const Login = () => {
             <button onClick={login}>Login</button>
             {user && <button onClick={logout}>Logout</button>}
             <h2>{error}</h2>
-            <h1>{user?.email}</h1>
         </div>
      );
 }
