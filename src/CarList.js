@@ -1,20 +1,8 @@
 import { Link } from "react-router-dom";
 const CarList = ({cars, title}) => {
 
-    var carType = "Sedan"
-    let image;
-
-    if (carType === "SUV") {
-        image = <img src="iconSUV.jpg" className="car-icon" alt="car"/>;
-    }
-    if (carType === "Sedan") {
-        image = "iconSedan.jpg"
-    }
-
-
-
     return ( 
-        <div className="centered left-text">
+        <div className="blog-list">
             <h2>{title}</h2>
             {cars.map((car) => (
                 <div className="car-card" key={car.car_id}>
@@ -26,7 +14,7 @@ const CarList = ({cars, title}) => {
                         </div>
                         <div className="car-card-secondary">
                             <h2>{car.price} €/day</h2>
-                            <img src={image} className="car-icon" alt="car"/>;
+                            <img src={"icon" + car.type + ".png"} className="car-icon" alt="car"/>;
                         </div>
                         <div className="car-card-right">
                         <Link to={`/rentacar/${car.car_id}`}>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-const CreateCustomer = () => {
+const Create = () => {
 
     const[make, setMake] = useState('');
     const[model, setModel] = useState('');
@@ -24,7 +24,7 @@ const CreateCustomer = () => {
         }).then(() => {
             console.log('new car added' + JSON.stringify(car))
             setIspending(false);
-            history.push('/');
+            //history.push('/');
         })
     }
 
@@ -54,9 +54,16 @@ const CreateCustomer = () => {
                     value={type}
                     onChange={(e)=> setType(e.target.value)}
                 >
-                    <option value="SUV">SUV</option>
+                    <option value="Micro">Micro</option>
                     <option value="Sedan">Sedan</option>
+                    <option value="SUV">SUV</option>
+                    <option value="Hatchback">Hatchback</option>
+                    <option value="Minivan">Minivan</option>
+                    <option value="Coupe">Coupe</option>
+                    <option value="Supercar">Supercar</option>
+                    <option value="Pickup">Pickup</option>
                     <option value="Van">Van</option>
+                    <option value="Limousine">Limousine</option>
                 </select>
                 <label> Seats:</label>
                 <input 
@@ -80,4 +87,4 @@ const CreateCustomer = () => {
      );
 }
  
-export default CreateCustomer;
+export default Create;

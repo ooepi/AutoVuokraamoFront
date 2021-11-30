@@ -15,7 +15,7 @@ const CarDetails = () => {
     }
 
     return ( 
-        <div className="blog-details">
+        <div className="car-details">
             {car && (
                 <article>
                     <h1>{car.make}</h1>
